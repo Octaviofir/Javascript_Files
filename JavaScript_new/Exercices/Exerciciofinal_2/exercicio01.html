@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio_2ºparte | Octávio Figueiredo</title>
+</head>
+<body>
+    <script>
+        //Exercício 1.1 
+        //Criação de uma IIFE
+       (function(){
+        console.log('isto foi demasiado rápido');
+       })
+       ();
+
+       //Exercício 1.2 - Closure Function
+       //Criei uma variável keyForm porque o primeiro valor é fixo.
+       //depois na função keyForm criei uma funcão IIFE que irá retornar o valor do nome.
+       //Ao fazer console.log chamei a função KeyForm e determinei o valor: Vitor.
+
+       const keyForm = 'Nome';
+
+       function form(keyForm) {
+        return function(valueForm) {
+            return keyForm + ":" + " " + valueForm;
+        }
+       }
+        console.log(form(keyForm)('Vitor'));
+
+        //Exercício 1.3 - Função Contrutora
+        function Telemovel (nome, valor) {
+            this.nome = nome;
+            this.valor = valor;
+        }
+
+        const telemovelNovo = new Telemovel('iPhone', 1499);
+        console.log(telemovelNovo);
+
+        //Exercício 1.4 - Alterar valor
+        telemovelNovo.valor = 2.5;
+        console.log(telemovelNovo);
+
+        //Exercício 1.5 - Valor inteiro (arredondado para cima (round) arredondar para baixo: Math.floor())
+        const valorInteiro = Math.round(telemovelNovo.valor);
+        console.log(valorInteiro);
+
+  </script>
+</body>
+</html>

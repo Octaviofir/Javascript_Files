@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício Final | JavaScript Octávio Figueiredo</title>
+</head>
+
+<body>
+    <script>
+        class Ecommerce {
+            constructor(id, name, price) {
+                this.id = id,
+                    this.name = name,
+                    this.price = price,
+                    this.products = [],
+                    this.cart = []
+            }
+
+            addProduct(product) {
+                this.products.push(product);
+            }
+            setProductPrice(productId, price) {
+                const encontrarProdutos = this.products.find((item) => item.id === productId);
+                if (encontrarProdutos) {
+                    encontrarProdutos.price = price;
+                    return encontrarProdutos;
+                } else {
+                    return null;
+                }
+            }
+
+            getAllProducts() {
+                return this.products;
+            }
+
+            getAllProductsNames() {
+                return this.products.map(item => item.name).join(';' + ' ');
+            }
+
+            getProductById(id) {
+                return this.products.find((item) => id === item.id);
+            }
+
+            getProductByName(name) {
+                return this.products.find((item) => name === item.name);
+            }
+
+            getProductsByPrice(initialPrice, finalPrice) {
+                return this.products.filter((item) => {
+                    if (item.price >= initialPrice && item.price <= finalPrice) {
+                        return item;
+                    } else {
+                        return null
+                    }
+                })
+            }
+
+            addProductToCart(name) {
+                return this.products.filter((item) => {
+                    if (name === item.name) {
+                        this.cart.push(item)
+                    } else {
+                        return null
+                    }
+                })
+            }
+
+            getCart() {
+                return this.cart;
+            }
+
+            getCartTotalPrice() {
+                const totalPrice = this.cart.reduce((total, item) => {
+                    return total + item.price;
+                }, 0);
+                return totalPrice;
+            }
+
+        }
+        //o arr de produtos que na verdade é um objeto.
+        const vestuario = [
+            { id: 1, name: 'cuecas', price: 80 },
+            { id: 2, name: 'camisola', price: 90 },
+            { id: 3, name: 'sapatos', price: 70 },
+            { id: 4, name: 'camisa', price: 35 }
+        ]
+
+        // este código serve para criar uma nova instância da class Ecommerce.
+        const ecommerce = new Ecommerce;
+
+        //adicionamos os produtos ao arr
+        vestuario.forEach((item) => { ecommerce.addProduct(item) });
+
+        //altera o preço do item com o id: 1 para 100.
+        ecommerce.setProductPrice(1, 100);
+
+        // retorna todos os produtos no arr
+        console.log(ecommerce.getAllProducts());
+
+        // retorna todos os nomes dos produtos, separados por";" 
+        console.log(ecommerce.getAllProductsNames());
+
+        // indicando um Id (3) verificamos o produto na consola.
+        console.log(ecommerce.getProductById(3));
+
+        // o mesmo mas indicando o nome
+        console.log(ecommerce.getProductByName('cuecas'));
+
+        // definimos intervalos de preço (20,50), na consola aparecem os que correspondem aos requisitos indicados.
+        console.log(ecommerce.getProductsByPrice(20, 50));
+
+        //adicionar produtos ao carrinho
+        ecommerce.addProductToCart('cuecas');
+        ecommerce.addProductToCart('camisola');
+        ecommerce.addProductToCart('sapatos');
+        ecommerce.addProductToCart('camisa');
+
+        //ver quais os produtos que estão no carrinho
+        console.log(ecommerce.getCart());
+
+        //fazer o somatório do valor total dos items no carrinho.
+        console.log(ecommerce.getCartTotalPrice());
+
+    </script>
+</body>
+
+</html>

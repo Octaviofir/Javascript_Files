@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio01_Octávio</title>
+</head>
+
+<body>
+    <script>
+        //exercicio - 1
+        //exercicio - 1.1
+        // depois de colar o arr, utilizei um ciclo for para iterear sobre os paises e imprimir o valor de cada um deles na posição do arr
+        // precisamos de definir primeiro o valor iniciar de i = 0, e precisamos somar +1 a cada posição (i++)
+        // o ciclo irá durar até à extrenção do arr, i < paises.length 
+        const paises = ['Albânia', 'Bolívia', 'Canadá', 'Dinamarca', 'Etiópia', 'Finlândia', 'Alemanha', 'Hungria', 'Irlanda', 'Japão', 'Quênia'];
+        for (let i = 0; i < paises.length; i++) {
+            console.log(paises[i])
+        }
+
+        //exercicio - 1.2 
+        //neste exercicio criamos a função, precisamos de colocar {} e return porque não se trata de uma arrow function,
+        //para saber o nr de posições de um array, usamos nome da funcção .length, depois fazemos console.log e chamamos a função criada.
+        function numeroPosicoes() {
+            return paises.length
+        }
+        console.log(numeroPosicoes());
+
+        //ecercico - 1.3
+        //para adicionar um elemento ao inicio do arr usamos o método unshift
+        paises.unshift('Portugal');
+        console.log(paises);
+
+        //exercicio - 1.4
+        //para adicionar ao último, usamos o método push.
+        paises.push('Espanha');
+        console.log(paises);
+
+        //exercicio - 1.5
+        // neste exercicio defini uma funcão que aceite um parâmetro, (a), usei o método slice para partir nos 3 últimos, valor(10) 
+        //não precisei de defiinir o último valor(13) porque na ausência do segundo valor o método é aplicado até ao fim do arr.
+        // guardei o valor em memória para depois aplicar o ciclo for, com a extensão do valor guardado em memória (3), 
+        // não usei return porque simplesmente queria imprimir o resultado.
+        function mostrarTresUltimos(a) {
+            const tresUltimos = a.slice(10);
+            for (i = 0; i < tresUltimos.length; i++) {
+                console.log(tresUltimos[i]);
+            }
+        };
+        mostrarTresUltimos(paises);
+
+        //exercicio - 1.6
+        //por virgulas seria o toString, mas como queremos uma string com um caracteres especial (-) usamos o método Join.
+        let join = paises.join("-");
+        console.log(join);
+
+    </script>
+</body>
+
+</html>

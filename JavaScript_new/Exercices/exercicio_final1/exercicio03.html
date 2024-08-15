@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio01_Octávio</title>
+</head>
+
+<body>
+    <script>
+
+    let titulo = 'isto é um titulo longo de um livro';
+        //exercício 3.1
+        //para saber o nr de caracteres basta usar o método 
+        const contarCaracteres = titulo.length;
+        console.log(contarCaracteres);
+
+        //exercício 3.2
+        //Uso do método replace, para substituir uma palavra por outra. 
+        const replace = titulo.replace('livro', 'diário');
+        console.log(replace);
+
+        //exercício 3.3
+        let adicionarTexto = titulo.concat(" " + 'mas não faz mal porque não é uma seca.');
+        console.log(adicionarTexto);
+
+        //exercício 3.4
+        const quatroPrimeiros = titulo.slice(0,4);
+        console.log(quatroPrimeiros);
+    </script>
+</body>
+
+</html>

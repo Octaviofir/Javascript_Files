@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio01_Octávio</title>
+</head>
+
+<body>
+    <script>
+
+        // para este exercicio, apliquei a função aplirdesconto que tem determinadas condições, usei return para devolver o resultado,
+        // o desafio foi perceber como aplicada "%" para isso tive de ir ao valor de desconto e divdir por 100 para conseguir um valor decimal para não da erro.
+        function aplicarDesconto(preco, desconto) {
+            if (desconto < 10) {
+                return preco + (preco * desconto / 100)
+            } else if (desconto > 10 && desconto < 30) {
+                return preco - (preco * desconto / 100)
+            } else if (desconto === 0) {
+                return preco * 2;
+            }
+        }
+        console.log(aplicarDesconto(50, 15));
+
+    </script>
+</body>
+
+</html>
